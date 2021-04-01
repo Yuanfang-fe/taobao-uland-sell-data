@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var taobao = require("../public/javascripts/taobao/20200909/index")
+var taobao = require("../taobao/20200909/index")
 
 /* 获取产品数据. */
 router.get("/productData", async function (req, res, next) {

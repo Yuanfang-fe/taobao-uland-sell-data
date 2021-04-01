@@ -163,7 +163,7 @@ const mtopjsonp2 = function (data) {
  * 获取产品的数据
  * @param {*} url 爱淘宝的商品链接 https://uland.taobao.com
  */
- const getProductData = exports.getProductData = async function(url) {
+exports.getProductData = async function(url) {
    var { params, cookies } = await doLogin(url);
    var {
      querystring: { jsv, appKey, api, dataType, timeout, type, v },
@@ -218,7 +218,9 @@ const mtopjsonp2 = function (data) {
      })
        .then(function (response) {
          let data = eval(response.data);
+
          console.log(data.data.resultList);
+         console.log(data)
          resolve(data);
        })
        .catch(function (error) {
@@ -232,7 +234,7 @@ const mtopjsonp2 = function (data) {
 
 // test
 // let timer = setInterval(() => {
-  getProductData('https://uland.taobao.com/coupon/edetail?spm=a311n.9159044.cellitem2.87.18e5791fOlsCsl&e=3FV6nfvka9YNfLV8niU3R40dlhWtfp96Ng4Gqf8CT4BnmB%2Fzds2ljdzOVELVbcPsCmgjKy3tnlAAbAN3NcqP1djiLvKBoQ2vzOJz0K1X%2B2rczlRC1W3D7FMlY14Qlkeac0Wu%2BmInBN4OWUdfcAJLEmYYYSHre8qcTTiZb6qxNoeie%2FpBy9wBFg%3D%3D&app_pvid=59590_11.15.153.223_538_1600392807636&ptl=floorId%3A22358%3Bapp_pvid%3A59590_11.15.153.223_538_1600392807636%3Btpp_pvid%3Af5a1d55a-d394-4601-acda-0ccb9c4f24f5&union_lens=lensId%3AOPT%401600392807%40f5a1d55a-d394-4601-acda-0ccb9c4f24f5_566174470926%401%3Brecoveryid%3Aa311n.9159044_1600392799182_6481355653844001_Hf%2FoF%3Bprepvid%3Aa311n.9159044_1600392799182_6481355653844001_Hf%2FoF&pid=mm_33231688_7050284_23466709')
+  // getProductData('https://uland.taobao.com/coupon/edetail?spm=a311n.9159044.cellitem2.87.18e5791fOlsCsl&e=3FV6nfvka9YNfLV8niU3R40dlhWtfp96Ng4Gqf8CT4BnmB%2Fzds2ljdzOVELVbcPsCmgjKy3tnlAAbAN3NcqP1djiLvKBoQ2vzOJz0K1X%2B2rczlRC1W3D7FMlY14Qlkeac0Wu%2BmInBN4OWUdfcAJLEmYYYSHre8qcTTiZb6qxNoeie%2FpBy9wBFg%3D%3D&app_pvid=59590_11.15.153.223_538_1600392807636&ptl=floorId%3A22358%3Bapp_pvid%3A59590_11.15.153.223_538_1600392807636%3Btpp_pvid%3Af5a1d55a-d394-4601-acda-0ccb9c4f24f5&union_lens=lensId%3AOPT%401600392807%40f5a1d55a-d394-4601-acda-0ccb9c4f24f5_566174470926%401%3Brecoveryid%3Aa311n.9159044_1600392799182_6481355653844001_Hf%2FoF%3Bprepvid%3Aa311n.9159044_1600392799182_6481355653844001_Hf%2FoF&pid=mm_33231688_7050284_23466709')
   // getProductData(
   //   "https://uland.taobao.com/coupon/edetail?spm=a311n.9159044.30889496.2.18e5791fU8FX6t&e=xF%2FIAT9M0OsNfLV8niU3R5TgU2jJNKOfNNtsjZw%2F%2FoIPGqzJHeInP%2Bx3E5qoOl7LQjEvcrWTTTgygrLrKN9EFOmFKyIN1bVX65OH1WfUm95Uf2TiFOebe4UragdyXcdsKImrWVhkPy%2BEJpuFXfIw5IchIB%2Bs4x7RJfYGDZbs1v3k7glD%2BLC7OUwNBUbTsArs&app_pvid=59590_11.26.37.23_548_1600393474244&ptl=floorId%3A27258%3Bapp_pvid%3A59590_11.26.37.23_548_1600393474244%3Btpp_pvid%3Ada019e60-8c34-4d97-a9b0-902db3f4ca12&union_lens=lensId%3AOPT%401600393474%40da019e60-8c34-4d97-a9b0-902db3f4ca12_619807390194%401%3Brecoveryid%3Aa311n.9159044_1600393472981_7547709603747303_Hf%2FoF%3Bprepvid%3Aa311n.9159044_1600393472981_7547709603747303_Hf%2FoF&pid=mm_33231688_7050284_23466709"
   // );

@@ -191,7 +191,6 @@ exports.getCna = function () {
         reject(error);
       } else {
         const cnaArr = body.match(/goldlog.Etag="(.*)";/) || ['', ''];
-        // console.log(cnaArr)
         resolve(cnaArr[1]);
       }
     });
